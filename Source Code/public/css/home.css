@@ -1,0 +1,265 @@
+.info, .change-name, .change-input {
+    display: block;
+    margin: 0 10px 10px 10px;
+    padding: 3px;
+    border: none;
+    font-size: 22px;
+}
+
+.change-name {
+    font-size: 18px;
+}
+
+.info:focus {
+    outline: 0;
+}
+
+.info {
+    font-size: 22px;
+    padding-top: 30px;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 80%;
+    background: rgba(0, 0, 0, 0);
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    overflow-x: hidden;
+    /* Hack to make "rows" attribute apply in Firefox. */
+}
+
+/* Underline and Placeholder */
+
+.info+.change-input {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 30%;
+    border-top: 1px solid red;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 5px;
+}
+
+.info:focus+.change-input {
+    width: 80%;
+}
+
+.info:focus, .info:valid {
+    padding-top: 35px;
+}
+
+.info:focus+.change-input>.change-name, .info:valid+.change-input>.change-name {
+    top: -66px;
+    font-size: 19px;
+    color: #333;
+}
+
+.info:valid+.change-input {
+    border-color: black;
+}
+
+.info:invalid {
+    box-shadow: none;
+}
+
+.info+.change-input>.change-name {
+    margin: 0;
+    position: absolute;
+    color: #8F8F8F;
+    top: -70px;
+    left: 0px;
+    z-index: -1;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"] {
+    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    display: block;
+    /* opacity: 0; */
+    /* margin: 10px 0 0 0; */
+    padding: 10px;
+    cursor: pointer;
+}
+
+input {
+    color: #333333;
+}
+
+input[type="submit"]:active {
+    background: #999;
+}
+
+.info:valid~input[type="submit"] {
+    -webkit-animation: appear 1s forwards;
+    animation: appear 1s forwards;
+}
+
+.info:invalid~input[type="submit"] {
+    display: none;
+}
+
+@-webkit-keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+.transition, .form-content button, .form-content .question label, .form-content .question input[type="text"], .form-content .question input[type="number"], .form-content .question input[type="email"], .form-content .question input[type="password"] {
+    -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+    -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+    -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+    transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+}
+
+.form-content {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 25px;
+    /* background-color: white; */
+    border-radius: 40px;
+    left: 50%;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.form-content h3 {
+    color: black;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    margin-left: 15px;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.form-content button {
+    margin-top: 18px;
+    background-color: black;
+    border: 2px solid black; 
+    line-height: 0;
+    font-size: 17px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border-radius: 60px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+}
+
+.form-content button:hover, .form-content button:focus {
+    color: white;
+    background-color: #333333;
+    border: 2px solid #333333;
+    cursor: pointer;
+}
+
+.form-content .question {
+    position: relative;
+    padding: 18px 0;
+}
+
+.form-content .question:first-of-type {
+    padding-top: 0;
+}
+
+.form-content .question:last-of-type {
+    padding-bottom: 0;
+}
+
+.form-content .question label {
+    transform-origin: left center;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    font-size: 18px;
+    box-sizing: border-box;
+    padding: 0 15px;
+    display: block;
+    position: absolute;
+    margin-top: -40px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.form-content .question input[type="text"], .form-content .question input[type="number"], .form-content .question input[type="email"], .form-content .question input[type="password"] {
+    appearance: none;
+    background-color: none;
+    border: 2px solid black;
+    line-height: 0;
+    font-size: 17px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-radius: 60px;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+    width: 345px;
+}
+
+.form-content .question input[type="text"]:focus, .form-content .question input[type="number"]:focus, .form-content .question input[type="email"]:focus, .form-content .question input[type="password"]:focus {
+    outline: none;
+    background: white;
+    color: black;
+}
+
+/* .form-content .question input[type="text"]:valid, .form-content .question input[type="number"]:valid, .form-content .question input[type="email"]:valid, .form-content .question input[type="password"]:valid {
+    margin-top: 10px;
+} */
+
+.form-content .question input[type="text"]:focus~label, .form-content .question input[type="number"]:focus~label, .form-content .question input[type="password"]:focus~label, .form-content .question input[type="email"]:focus~label {
+    -moz-transform: translate(0, -35px);
+    -ms-transform: translate(0, -35px);
+    -webkit-transform: translate(0, -35px);
+    transform: translate(0, -35px);
+}
+
+.form-content .question input[type="text"]:valid~label, .form-content .question input[type="number"]:valid~label, .form-content .question input[type="email"]:valid~label, .form-content .question input[type="password"]:valid~label {
+    text-transform: uppercase;
+    -moz-transform: translate(5px, -35px) scale(0.6);
+    -ms-transform: translate(5px, -35px) scale(0.6);
+    -webkit-transform: translate(5px, -35px) scale(0.6);
+    transform: translate(5px, -35px) scale(0.6);
+}
+
+.button {
+    /* background-color: white; */
+    line-height: 0;
+    font-size: 17px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 19px 15px;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+}
+
+.button:hover {
+    /* background-color: black; */
+    color: white;
+}
+
+.button {
+    float: right;
+}
